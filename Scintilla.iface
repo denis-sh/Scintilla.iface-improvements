@@ -90,7 +90,7 @@ val SCI_OPTIONAL_START=3000
 val SCI_LEXER_START=4000
 
 # Add text to the document at current position.
-fun void AddText=2001(int length, string text)
+fun void AddText=2001(len length, string text)
 
 # Add array of cells to document.
 fun void AddStyledText=2002(int length, cells c)
@@ -180,7 +180,7 @@ set void SetAnchor=2026(position posAnchor,)
 
 # Retrieve the text of the line containing the caret.
 # Returns the index of the caret on the line.
-get int GetCurLine=2027(int length, stringresult text)
+get int GetCurLine=2027(len length, stringresult text)
 
 # Retrieve the position of the last correctly styled character.
 get position GetEndStyled=2028(,)
@@ -451,7 +451,7 @@ get int StyleGetSize=2485(int style,)
 
 # Get the font of a style.
 # Returns the length of the fontName
-get int StyleGetFont=2486(int style, stringresult fontName)
+get len StyleGetFont=2486(int style, stringresult fontName)
 
 # Get is a style to have its end of line filled or not.
 get bool StyleGetEOLFilled=2487(int style,)
@@ -534,7 +534,7 @@ fun void ClearCmdKey=2071(keymod km,)
 fun void ClearAllCmdKeys=2072(,)
 
 # Set the styles for a segment of the document.
-fun void SetStylingEx=2073(int length, string styles)
+fun void SetStylingEx=2073(len length, string styles)
 
 # Set a style to be visible or not.
 set void StyleSetVisible=2074(int style, bool visible)
@@ -862,7 +862,7 @@ get int GetFirstVisibleLine=2152(,)
 
 # Retrieve the contents of a line.
 # Returns the length of the line.
-get int GetLine=2153(int line, stringresult text)
+get len GetLine=2153(int line, stringresult text)
 
 # Returns the number of lines in the document. There is always at least one.
 get int GetLineCount=2154(,)
@@ -887,7 +887,7 @@ fun void SetSel=2160(position start, position end)
 
 # Retrieve the selected text.
 # Return the length of the text.
-get int GetSelText=2161(, stringresult text)
+get len GetSelText=2161(, stringresult text)
 
 # Retrieve a range of text.
 # Return the length of the text.
@@ -952,7 +952,7 @@ set void SetText=2181(, string text)
 
 # Retrieve all the text in the document.
 # Returns number of characters retrieved.
-get int GetText=2182(int length, stringresult text)
+get len GetText=2182(len length, stringresult text)
 
 # Retrieve the number of characters in the document.
 get int GetTextLength=2183(,)
@@ -993,7 +993,7 @@ get position GetTargetEnd=2193(,)
 # Replace the target text with the argument text.
 # Text is counted so it can contain NULs.
 # Returns the length of the replacement text.
-fun int ReplaceTarget=2194(int length, string text)
+fun int ReplaceTarget=2194(len length, string text)
 
 # Replace the target text with the argument text after \d processing.
 # Text is counted so it can contain NULs.
@@ -1001,12 +1001,12 @@ fun int ReplaceTarget=2194(int length, string text)
 # matched in the last search operation which were surrounded by \( and \).
 # Returns the length of the replacement text including any change
 # caused by processing the \d patterns.
-fun int ReplaceTargetRE=2195(int length, string text)
+fun int ReplaceTargetRE=2195(len length, string text)
 
 # Search for a counted string in the target and set the target to the found
 # range. Text is counted so it can contain NULs.
 # Returns length of range or -1 for failure in which case target is not moved.
-fun int SearchInTarget=2197(int length, string text)
+fun int SearchInTarget=2197(len length, string text)
 
 # Set the search flags used by SearchInTarget.
 set void SetSearchFlags=2198(int flags,)
@@ -1236,7 +1236,7 @@ set void SetVScrollBar=2280(bool show,)
 get bool GetVScrollBar=2281(,)
 
 # Append a string to the end of the document without changing the selection.
-fun void AppendText=2282(int length, string text)
+fun void AppendText=2282(len length, string text)
 
 # Is drawing done in two phases with backgrounds drawn before faoregrounds?
 get bool GetTwoPhaseDraw=2283(,)
@@ -1274,7 +1274,7 @@ set void SetMultiPaste=2614(int multiPaste,)
 get int GetMultiPaste=2615(,)
 
 # Retrieve the value of a tag from a regular expression search.
-get int GetTag=2616(int tagNumber, stringresult tagValue)
+get len GetTag=2616(int tagNumber, stringresult tagValue)
 
 # Make the target range start and end be the same as the selection range start and end.
 fun void TargetFromSelection=2287(,)
@@ -1716,7 +1716,7 @@ fun position PositionAfter=2418(position pos,)
 fun void CopyRange=2419(position start, position end)
 
 # Copy argument text to the clipboard.
-fun void CopyText=2420(int length, string text)
+fun void CopyText=2420(len length, string text)
 
 enu SelectionMode=SC_SEL_
 val SC_SEL_STREAM=0
@@ -1805,7 +1805,7 @@ get int AutoCGetCurrent=2445(,)
 
 # Get currently selected item text in the auto-completion list
 # Returns the length of the item text
-get int AutoCGetCurrentText=2610(, stringresult s)
+get len AutoCGetCurrentText=2610(, stringresult s)
 
 enu CaseInsensitiveBehaviour=SC_CASEINSENSITIVEBEHAVIOUR_
 val SC_CASEINSENSITIVEBEHAVIOUR_RESPECTCASE=0
@@ -1822,7 +1822,7 @@ fun void Allocate=2446(int bytes,)
 
 # Returns the target converted to UTF8.
 # Return the length in bytes.
-fun int TargetAsUTF8=2447(, stringresult s)
+fun len TargetAsUTF8=2447(, stringresult s)
 
 # Set the length of the utf8 argument for calling EncodedFromUTF8.
 # Set to -1 and the string will be measured to the first nul.
@@ -1831,7 +1831,7 @@ set void SetLengthForEncode=2448(int bytes,)
 # Translates a UTF8 string into the document encoding.
 # Return the length of the result in bytes.
 # On error return 0.
-fun int EncodedFromUTF8=2449(string utf8, stringresult encoded)
+fun len EncodedFromUTF8=2449(string utf8, stringresult encoded)
 
 # Find the position of a column on a line taking into account tabs and
 # multi-byte characters. If beyond end of line, return line end position.
@@ -1961,7 +1961,7 @@ fun int MarkerSymbolDefined=2529(int markerNumber,)
 set void MarginSetText=2530(int line, string text)
 
 # Get the text in the text margin for a line
-get int MarginGetText=2531(int line, stringresult text)
+get len MarginGetText=2531(int line, stringresult text)
 
 # Set the style number for the text margin for a line
 set void MarginSetStyle=2532(int line, int style)
@@ -1973,7 +1973,7 @@ get int MarginGetStyle=2533(int line,)
 set void MarginSetStyles=2534(int line, string styles)
 
 # Get the styles in the text margin for a line
-get int MarginGetStyles=2535(int line, stringresult styles)
+get len MarginGetStyles=2535(int line, stringresult styles)
 
 # Clear the margin text on all lines
 fun void MarginTextClearAll=2536(,)
@@ -1998,7 +1998,7 @@ get int GetMarginOptions=2557(,)
 set void AnnotationSetText=2540(int line, string text)
 
 # Get the annotation text for a line
-get int AnnotationGetText=2541(int line, stringresult text)
+get len AnnotationGetText=2541(int line, stringresult text)
 
 # Set the style number for the annotations for a line
 set void AnnotationSetStyle=2542(int line, int style)
@@ -2010,7 +2010,7 @@ get int AnnotationGetStyle=2543(int line,)
 set void AnnotationSetStyles=2544(int line, string styles)
 
 # Get the annotation styles for a line
-get int AnnotationGetStyles=2545(int line, stringresult styles)
+get len AnnotationGetStyles=2545(int line, stringresult styles)
 
 # Get the number of annotation lines for a line
 get int AnnotationGetLines=2546(int line,)
@@ -2258,11 +2258,11 @@ set void SetLexerLanguage=4006(, string language)
 fun void LoadLexerLibrary=4007(, string path)
 
 # Retrieve a "property" value previously set with SetProperty.
-get int GetProperty=4008(string key, stringresult buf)
+get len GetProperty=4008(string key, stringresult buf)
 
 # Retrieve a "property" value previously set with SetProperty,
 # with "$()" variable replacement on returned buffer.
-get int GetPropertyExpanded=4009(string key, stringresult buf)
+get len GetPropertyExpanded=4009(string key, stringresult buf)
 
 # Retrieve a "property" value previously set with SetProperty,
 # interpreted as an int AFTER any "$()" variable replacement.
@@ -2273,13 +2273,13 @@ get int GetStyleBitsNeeded=4011(,)
 
 # Retrieve the name of the lexer.
 # Return the length of the text.
-get int GetLexerLanguage=4012(, stringresult text)
+get len GetLexerLanguage=4012(, stringresult text)
 
 # For private communication between an application and a known lexer.
 fun int PrivateLexerCall=4013(int operation, int pointer)
 
 # Retrieve a '\n' separated list of properties understood by the current lexer.
-fun int PropertyNames=4014(, stringresult names)
+fun len PropertyNames=4014(, stringresult names)
 
 enu TypeProperty=SC_TYPE_
 val SC_TYPE_BOOLEAN=0
@@ -2290,10 +2290,10 @@ val SC_TYPE_STRING=2
 fun int PropertyType=4015(string name,)
 
 # Describe a property.
-fun int DescribeProperty=4016(string name, stringresult description)
+fun len DescribeProperty=4016(string name, stringresult description)
 
 # Retrieve a '\n' separated list of descriptions of the keyword sets understood by the current lexer.
-fun int DescribeKeyWordSets=4017(, stringresult descriptions)
+fun len DescribeKeyWordSets=4017(, stringresult descriptions)
 
 # Notifications
 # Type of modification and the action which caused the modification.
