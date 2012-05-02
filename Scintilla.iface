@@ -862,7 +862,7 @@ get int GetFirstVisibleLine=2152(,)
 
 # Retrieve the contents of a line.
 # Returns the length of the line.
-get int GetLine=2153(int line, stringresult text)
+get len GetLine=2153(int line, charsresult text)
 
 # Returns the number of lines in the document. There is always at least one.
 get int GetLineCount=2154(,)
@@ -1822,7 +1822,7 @@ fun void Allocate=2446(int bytes,)
 
 # Returns the target converted to UTF8.
 # Return the length in bytes.
-fun int TargetAsUTF8=2447(, stringresult s)
+fun len TargetAsUTF8=2447(, charsresult s)
 
 # Set the length of the utf8 argument for calling EncodedFromUTF8.
 # Set to -1 and the string will be measured to the first nul.
@@ -1831,7 +1831,7 @@ set void SetLengthForEncode=2448(int bytes,)
 # Translates a UTF8 string into the document encoding.
 # Return the length of the result in bytes.
 # On error return 0.
-fun int EncodedFromUTF8=2449(cstring utf8, stringresult encoded)
+fun len EncodedFromUTF8=2449(cstring utf8, charsresult encoded)
 
 # Find the position of a column on a line taking into account tabs and
 # multi-byte characters. If beyond end of line, return line end position.
@@ -1961,7 +1961,7 @@ fun int MarkerSymbolDefined=2529(int markerNumber,)
 set void MarginSetText=2530(int line, cstring text)
 
 # Get the text in the text margin for a line
-get int MarginGetText=2531(int line, stringresult text)
+get len MarginGetText=2531(int line, charsresult text)
 
 # Set the style number for the text margin for a line
 set void MarginSetStyle=2532(int line, int style)
@@ -1973,7 +1973,7 @@ get int MarginGetStyle=2533(int line,)
 set void MarginSetStyles=2534(int line, cstring styles)
 
 # Get the styles in the text margin for a line
-get int MarginGetStyles=2535(int line, stringresult styles)
+get len MarginGetStyles=2535(int line, charsresult styles)
 
 # Clear the margin text on all lines
 fun void MarginTextClearAll=2536(,)
@@ -1998,7 +1998,7 @@ get int GetMarginOptions=2557(,)
 set void AnnotationSetText=2540(int line, cstring text)
 
 # Get the annotation text for a line
-get int AnnotationGetText=2541(int line, stringresult text)
+get len AnnotationGetText=2541(int line, charsresult text)
 
 # Set the style number for the annotations for a line
 set void AnnotationSetStyle=2542(int line, int style)
@@ -2010,7 +2010,7 @@ get int AnnotationGetStyle=2543(int line,)
 set void AnnotationSetStyles=2544(int line, cstring styles)
 
 # Get the annotation styles for a line
-get int AnnotationGetStyles=2545(int line, stringresult styles)
+get len AnnotationGetStyles=2545(int line, charsresult styles)
 
 # Get the number of annotation lines for a line
 get int AnnotationGetLines=2546(int line,)
