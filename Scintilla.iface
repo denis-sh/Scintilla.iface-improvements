@@ -135,7 +135,7 @@ fun void SetSavePoint=2014(,)
 
 # Retrieve a buffer of cells.
 # Returns the number of bytes in the buffer not including terminating NULs.
-fun int GetStyledText=2015(, textrange tr)
+get int GetStyledText=2015(, textrange tr)
 
 # Are there any redoable actions in the undo history?
 fun bool CanRedo=2016(,)
@@ -180,7 +180,7 @@ set void SetAnchor=2026(position posAnchor,)
 
 # Retrieve the text of the line containing the caret.
 # Returns the index of the caret on the line.
-fun int GetCurLine=2027(int length, stringresult text)
+get int GetCurLine=2027(int length, stringresult text)
 
 # Retrieve the position of the last correctly styled character.
 get position GetEndStyled=2028(,)
@@ -305,7 +305,7 @@ fun void MarkerDelete=2044(int line, int markerNumber)
 fun void MarkerDeleteAll=2045(int markerNumber,)
 
 # Get a bit mask of all the markers set on a line.
-fun int MarkerGet=2046(int line,)
+get int MarkerGet=2046(int line,)
 
 # Find the next line at or after lineStart that includes a marker in mask.
 # Return -1 when no more lines.
@@ -451,7 +451,7 @@ get int StyleGetSize=2485(int style,)
 
 # Get the font of a style.
 # Returns the length of the fontName
-fun int StyleGetFont=2486(int style, stringresult fontName)
+get int StyleGetFont=2486(int style, stringresult fontName)
 
 # Get is a style to have its end of line filled or not.
 get bool StyleGetEOLFilled=2487(int style,)
@@ -862,7 +862,7 @@ get int GetFirstVisibleLine=2152(,)
 
 # Retrieve the contents of a line.
 # Returns the length of the line.
-fun int GetLine=2153(int line, stringresult text)
+get int GetLine=2153(int line, stringresult text)
 
 # Returns the number of lines in the document. There is always at least one.
 get int GetLineCount=2154(,)
@@ -887,11 +887,11 @@ fun void SetSel=2160(position start, position end)
 
 # Retrieve the selected text.
 # Return the length of the text.
-fun int GetSelText=2161(, stringresult text)
+get int GetSelText=2161(, stringresult text)
 
 # Retrieve a range of text.
 # Return the length of the text.
-fun int GetTextRange=2162(, textrange tr)
+get int GetTextRange=2162(, textrange tr)
 
 # Draw the selection in normal style or with selection highlighted.
 fun void HideSelection=2163(bool normal,)
@@ -952,7 +952,7 @@ fun void SetText=2181(, string text)
 
 # Retrieve all the text in the document.
 # Returns number of characters retrieved.
-fun int GetText=2182(int length, stringresult text)
+get int GetText=2182(int length, stringresult text)
 
 # Retrieve the number of characters in the document.
 get int GetTextLength=2183(,)
@@ -1274,7 +1274,7 @@ set void SetMultiPaste=2614(int multiPaste,)
 get int GetMultiPaste=2615(,)
 
 # Retrieve the value of a tag from a regular expression search.
-fun int GetTag=2616(int tagNumber, stringresult tagValue)
+get int GetTag=2616(int tagNumber, stringresult tagValue)
 
 # Make the target range start and end be the same as the selection range start and end.
 fun void TargetFromSelection=2287(,)
@@ -1732,10 +1732,10 @@ set void SetSelectionMode=2422(int mode,)
 get int GetSelectionMode=2423(,)
 
 # Retrieve the position of the start of the selection at the given line (INVALID_POSITION if no selection on this line).
-fun position GetLineSelStartPosition=2424(int line,)
+get position GetLineSelStartPosition=2424(int line,)
 
 # Retrieve the position of the end of the selection at the given line (INVALID_POSITION if no selection on this line).
-fun position GetLineSelEndPosition=2425(int line,)
+get position GetLineSelEndPosition=2425(int line,)
 
 ## RectExtended rectangular selection moves
 # Move caret down one line, extending rectangular selection to new caret position.
@@ -1801,11 +1801,11 @@ set void SetWhitespaceChars=2443(, string characters)
 fun void SetCharsDefault=2444(,)
 
 # Get currently selected item position in the auto-completion list
-fun int AutoCGetCurrent=2445(,)
+get int AutoCGetCurrent=2445(,)
 
 # Get currently selected item text in the auto-completion list
 # Returns the length of the item text
-fun int AutoCGetCurrentText=2610(, stringresult s)
+get int AutoCGetCurrentText=2610(, stringresult s)
 
 enu CaseInsensitiveBehaviour=SC_CASEINSENSITIVEBEHAVIOUR_
 val SC_CASEINSENSITIVEBEHAVIOUR_RESPECTCASE=0
@@ -2258,11 +2258,11 @@ set void SetLexerLanguage=4006(, string language)
 fun void LoadLexerLibrary=4007(, string path)
 
 # Retrieve a "property" value previously set with SetProperty.
-fun int GetProperty=4008(string key, stringresult buf)
+get int GetProperty=4008(string key, stringresult buf)
 
 # Retrieve a "property" value previously set with SetProperty,
 # with "$()" variable replacement on returned buffer.
-fun int GetPropertyExpanded=4009(string key, stringresult buf)
+get int GetPropertyExpanded=4009(string key, stringresult buf)
 
 # Retrieve a "property" value previously set with SetProperty,
 # interpreted as an int AFTER any "$()" variable replacement.
