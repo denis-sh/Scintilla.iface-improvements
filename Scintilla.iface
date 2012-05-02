@@ -90,7 +90,7 @@ val SCI_OPTIONAL_START=3000
 val SCI_LEXER_START=4000
 
 # Add text to the document at current position.
-fun void AddText=2001(int length, string text)
+fun void AddText=2001(len length, chars text)
 
 # Add array of cells to document.
 fun void AddStyledText=2002(int length, cells c)
@@ -534,7 +534,7 @@ fun void ClearCmdKey=2071(keymod km,)
 fun void ClearAllCmdKeys=2072(,)
 
 # Set the styles for a segment of the document.
-fun void SetStylingEx=2073(int length, string styles)
+fun void SetStylingEx=2073(len length, chars styles)
 
 # Set a style to be visible or not.
 set void StyleSetVisible=2074(int style, bool visible)
@@ -993,7 +993,7 @@ get position GetTargetEnd=2193(,)
 # Replace the target text with the argument text.
 # Text is counted so it can contain NULs.
 # Returns the length of the replacement text.
-fun int ReplaceTarget=2194(int length, string text)
+fun len ReplaceTarget=2194(len length, chars text)
 
 # Replace the target text with the argument text after \d processing.
 # Text is counted so it can contain NULs.
@@ -1001,12 +1001,12 @@ fun int ReplaceTarget=2194(int length, string text)
 # matched in the last search operation which were surrounded by \( and \).
 # Returns the length of the replacement text including any change
 # caused by processing the \d patterns.
-fun int ReplaceTargetRE=2195(int length, string text)
+fun int ReplaceTargetRE=2195(len length, chars text)
 
 # Search for a counted string in the target and set the target to the found
 # range. Text is counted so it can contain NULs.
 # Returns length of range or -1 for failure in which case target is not moved.
-fun int SearchInTarget=2197(int length, string text)
+fun int SearchInTarget=2197(len length, chars text)
 
 # Set the search flags used by SearchInTarget.
 set void SetSearchFlags=2198(int flags,)
@@ -1236,7 +1236,7 @@ set void SetVScrollBar=2280(bool show,)
 get bool GetVScrollBar=2281(,)
 
 # Append a string to the end of the document without changing the selection.
-fun void AppendText=2282(int length, string text)
+fun void AppendText=2282(len length, chars text)
 
 # Is drawing done in two phases with backgrounds drawn before faoregrounds?
 get bool GetTwoPhaseDraw=2283(,)
