@@ -180,7 +180,7 @@ set void SetAnchor=2026(position posAnchor,)
 
 # Retrieve the text of the line containing the caret.
 # Returns the index of the caret on the line.
-get int GetCurLine=2027(int length, stringresult text)
+get null?bytelen:int GetCurLine=2027(bytelen length, cstringresult text)
 
 # Retrieve the position of the last correctly styled character.
 get position GetEndStyled=2028(,)
@@ -887,7 +887,7 @@ fun void SetSel=2160(position start, position end)
 
 # Retrieve the selected text.
 # Return the length of the text.
-get int GetSelText=2161(, stringresult text)
+get bytelen BUG GetSelText=2161(, cstringresult text)
 
 # Retrieve a range of text.
 # Return the length of the text.
@@ -952,7 +952,7 @@ set void SetText=2181(, cstring text)
 
 # Retrieve all the text in the document.
 # Returns number of characters retrieved.
-get int GetText=2182(int length, stringresult text)
+get null?bytelen:strlen GetText=2182(bytelen length, cstringresult text)
 
 # Retrieve the number of characters in the document.
 get int GetTextLength=2183(,)
