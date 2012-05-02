@@ -1716,7 +1716,7 @@ fun position PositionAfter=2418(position pos,)
 fun void CopyRange=2419(position start, position end)
 
 # Copy argument text to the clipboard.
-fun void CopyText=2420(int length, string text)
+fun void CopyText=2420(strlen length, cstring text)
 
 enu SelectionMode=SC_SEL_
 val SC_SEL_STREAM=0
