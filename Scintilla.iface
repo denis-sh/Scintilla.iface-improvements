@@ -451,7 +451,7 @@ get int StyleGetSize=2485(int style,)
 
 # Get the font of a style.
 # Returns the length of the fontName
-get int StyleGetFont=2486(int style, stringresult fontName)
+get strlen StyleGetFont=2486(int style, cstringresult fontName)
 
 # Get is a style to have its end of line filled or not.
 get bool StyleGetEOLFilled=2487(int style,)
@@ -1274,7 +1274,7 @@ set void SetMultiPaste=2614(int multiPaste,)
 get int GetMultiPaste=2615(,)
 
 # Retrieve the value of a tag from a regular expression search.
-get int GetTag=2616(int tagNumber, stringresult tagValue)
+get strlen GetTag=2616(int tagNumber, cstringresult tagValue)
 
 # Make the target range start and end be the same as the selection range start and end.
 fun void TargetFromSelection=2287(,)
@@ -1805,7 +1805,7 @@ get int AutoCGetCurrent=2445(,)
 
 # Get currently selected item text in the auto-completion list
 # Returns the length of the item text
-get int AutoCGetCurrentText=2610(, stringresult s)
+get strlen AutoCGetCurrentText=2610(, cstringresult s)
 
 enu CaseInsensitiveBehaviour=SC_CASEINSENSITIVEBEHAVIOUR_
 val SC_CASEINSENSITIVEBEHAVIOUR_RESPECTCASE=0
@@ -2258,11 +2258,11 @@ set void SetLexerLanguage=4006(, cstring language)
 fun void LoadLexerLibrary=4007(, cstring path)
 
 # Retrieve a "property" value previously set with SetProperty.
-get int GetProperty=4008(cstring key, stringresult buf)
+get strlen GetProperty=4008(cstring key, cstringresult buf)
 
 # Retrieve a "property" value previously set with SetProperty,
 # with "$()" variable replacement on returned buffer.
-get int GetPropertyExpanded=4009(cstring key, stringresult buf)
+get strlen GetPropertyExpanded=4009(cstring key, cstringresult buf)
 
 # Retrieve a "property" value previously set with SetProperty,
 # interpreted as an int AFTER any "$()" variable replacement.
@@ -2273,13 +2273,13 @@ get int GetStyleBitsNeeded=4011(,)
 
 # Retrieve the name of the lexer.
 # Return the length of the text.
-get int GetLexerLanguage=4012(, stringresult text)
+get strlen GetLexerLanguage=4012(, cstringresult text)
 
 # For private communication between an application and a known lexer.
 fun int PrivateLexerCall=4013(int operation, int pointer)
 
 # Retrieve a '\n' separated list of properties understood by the current lexer.
-fun int PropertyNames=4014(, stringresult names)
+fun strlen PropertyNames=4014(, cstringresult names)
 
 enu TypeProperty=SC_TYPE_
 val SC_TYPE_BOOLEAN=0
@@ -2290,10 +2290,10 @@ val SC_TYPE_STRING=2
 fun int PropertyType=4015(cstring name,)
 
 # Describe a property.
-fun int DescribeProperty=4016(cstring name, stringresult description)
+fun strlen DescribeProperty=4016(cstring name, cstringresult description)
 
 # Retrieve a '\n' separated list of descriptions of the keyword sets understood by the current lexer.
-fun int DescribeKeyWordSets=4017(, stringresult descriptions)
+fun strlen DescribeKeyWordSets=4017(, cstringresult descriptions)
 
 # Notifications
 # Type of modification and the action which caused the modification.
