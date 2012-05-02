@@ -284,13 +284,13 @@ val SC_MASK_FOLDERS=0xFE000000
 fun void MarkerDefine=2040(int markerNumber, int markerSymbol)
 
 # Set the foreground colour used for a particular marker number.
-fun void MarkerSetFore=2041(int markerNumber, colour fore)
+set void MarkerSetFore=2041(int markerNumber, colour fore)
 
 # Set the background colour used for a particular marker number.
-fun void MarkerSetBack=2042(int markerNumber, colour back)
+set void MarkerSetBack=2042(int markerNumber, colour back)
 
 # Set the background colour used for a particular marker number when its folding block is selected.
-fun void MarkerSetBackSelected=2292(int markerNumber, colour back)
+set void MarkerSetBackSelected=2292(int markerNumber, colour back)
 
 # Enable/disable highlight for current folding bloc (smallest one that contains the caret)
 fun void MarkerEnableHighlight=2293(bool enabled,)
@@ -321,7 +321,7 @@ fun void MarkerDefinePixmap=2049(int markerNumber, string pixmap)
 fun void MarkerAddSet=2466(int line, int set)
 
 # Set the alpha used for a marker that is drawn in the text area, not the margin.
-fun void MarkerSetAlpha=2476(int markerNumber, int alpha)
+set void MarkerSetAlpha=2476(int markerNumber, int alpha)
 
 enu MarginType=SC_MARGIN_
 val SC_MARGIN_SYMBOL=0
@@ -504,10 +504,10 @@ set void StyleSetCharacterSet=2066(int style, int characterSet)
 set void StyleSetHotSpot=2409(int style, bool hotspot)
 
 # Set the foreground colour of the main and additional selections and whether to use this setting.
-fun void SetSelFore=2067(bool useSetting, colour fore)
+set void SetSelFore=2067(bool useSetting, colour fore)
 
 # Set the background colour of the main and additional selections and whether to use this setting.
-fun void SetSelBack=2068(bool useSetting, colour back)
+set void SetSelBack=2068(bool useSetting, colour back)
 
 # Get the alpha of the selection.
 get int GetSelAlpha=2477(,)
@@ -597,10 +597,10 @@ set void IndicSetUnder=2510(int indic, bool under)
 get bool IndicGetUnder=2511(int indic,)
 
 # Set the foreground colour of all whitespace and whether to use this setting.
-fun void SetWhitespaceFore=2084(bool useSetting, colour fore)
+set void SetWhitespaceFore=2084(bool useSetting, colour fore)
 
 # Set the background colour of all whitespace and whether to use this setting.
-fun void SetWhitespaceBack=2085(bool useSetting, colour back)
+set void SetWhitespaceBack=2085(bool useSetting, colour back)
 
 # Set the size of the dots used to mark space characters.
 set void SetWhitespaceSize=2086(int size,)
@@ -948,7 +948,7 @@ fun void Paste=2179(,)
 fun void Clear=2180(,)
 
 # Replace the contents of the document with the argument text.
-fun void SetText=2181(, string text)
+set void SetText=2181(, string text)
 
 # Retrieve all the text in the document.
 # Returns number of characters retrieved.
@@ -1105,7 +1105,7 @@ val SC_FOLDFLAG_LINEAFTER_CONTRACTED=0x0010
 val SC_FOLDFLAG_LEVELNUMBERS=0x0040
 
 # Set some style options for folding.
-fun void SetFoldFlags=2233(int flags,)
+set void SetFoldFlags=2233(int flags,)
 
 # Ensure a particular line is visible by expanding any header line hiding it.
 # Use the currently set visibility policy to determine which range to display.
@@ -1287,8 +1287,8 @@ fun void LinesJoin=2288(,)
 fun void LinesSplit=2289(int pixelWidth,)
 
 # Set the colours used as a chequerboard pattern in the fold margin
-fun void SetFoldMarginColour=2290(bool useSetting, colour back)
-fun void SetFoldMarginHiColour=2291(bool useSetting, colour fore)
+set void SetFoldMarginColour=2290(bool useSetting, colour back)
+set void SetFoldMarginHiColour=2291(bool useSetting, colour fore)
 
 ## New messages go here
 
@@ -1826,7 +1826,7 @@ fun int TargetAsUTF8=2447(, stringresult s)
 
 # Set the length of the utf8 argument for calling EncodedFromUTF8.
 # Set to -1 and the string will be measured to the first nul.
-fun void SetLengthForEncode=2448(int bytes,)
+set void SetLengthForEncode=2448(int bytes,)
 
 # Translates a UTF8 string into the document encoding.
 # Return the length of the result in bytes.
